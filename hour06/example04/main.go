@@ -37,7 +37,7 @@ func main() {
 
 	fmt.Println()
 
-	a := []int{0,1,2,3,4}
+	a := []int{0,1,2,3,19}
 	fmt.Println(a,len(a),cap(a))
 
 	b := append(a[:1],a[1+1:]...)
