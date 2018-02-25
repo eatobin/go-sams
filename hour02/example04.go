@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func addition(x int, y int) int {
+func addition2(x int, y int) int {
 	return x + y
 }
 
 func main() {
 	var s string = "three"
-	fmt.Println(addition(1, s))
+	fmt.Println(addition2(1, s))
 }
