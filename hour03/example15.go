@@ -4,9 +4,9 @@ import (
 	"fmt"
 )
 
-const greeting string = "Hello, world"
+const greeting2 string = "Hello, world"
 
 func main() {
-	greeting = "Goodbye, cruel world"
-	fmt.Println(greeting)
+	greeting2 = "Goodbye, cruel world"
+	fmt.Println(greeting2)
 }

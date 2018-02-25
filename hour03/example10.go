@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-var s = "Hello world"
+var s9 = "Hello world"
 
 func main() {
-	fmt.Printf("Printing `s` variable from outer block %v\n", s)
+	fmt.Printf("Printing `s` variable from outer block %v\n", s9)
 	b := true
 	if b {
 		fmt.Printf("Printing `b` variable from outer block %v\n", b)
