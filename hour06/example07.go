@@ -9,4 +9,5 @@ func main() {
 	players["stokes"] = 26
 	fmt.Println(players["cook"])
 	fmt.Println(players["bairstow"])
+	fmt.Println(players)
 }

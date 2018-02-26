@@ -5,17 +5,17 @@ import (
 	"reflect"
 )
 
-type Drink struct {
+type Drink2 struct {
 	Name string
 	Ice  bool
 }
 
 func main() {
-	a := Drink{
+	a := Drink2{
 		Name: "Lemonade",
 		Ice:  true,
 	}
-	b := Drink{
+	b := Drink2{
 		Name: "Lemonade",
 		Ice:  true,
 	}

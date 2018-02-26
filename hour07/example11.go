@@ -2,13 +2,13 @@ package main
 
 import "fmt"
 
-type Drink struct {
+type Drink4 struct {
 	Name string
 	Ice  bool
 }
 
 func main() {
-	a := Drink{
+	a := Drink4{
 		Name: "Lemonade",
 		Ice:  true,
 	}

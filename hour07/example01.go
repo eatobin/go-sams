@@ -13,4 +13,5 @@ func main() {
 		Rating: 10,
 	}
 	fmt.Println(m.Name, m.Rating)
+	fmt.Println(m)
 }

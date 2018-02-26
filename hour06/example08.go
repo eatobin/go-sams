@@ -9,4 +9,5 @@ func main() {
 	players["stokes"] = 26
 	delete(players, "cook")
 	fmt.Println(players)
+	fmt.Println(len(players))
 }
