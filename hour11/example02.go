@@ -5,12 +5,12 @@ import (
 	"time"
 )
 
-func slowFunc() {
+func slowFunc2() {
 	time.Sleep(time.Second * 2)
-	fmt.Println("slowFunc() finished")
+	fmt.Println("slowFunc2() finished")
 }
 
 func main() {
-	go slowFunc()
+	go slowFunc2()
 	fmt.Println("I am now shown straightaway!")
 }

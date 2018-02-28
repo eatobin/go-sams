@@ -12,5 +12,5 @@ func slowFunc() {
 
 func main() {
 	slowFunc()
-	fmt.Println("I am not shown until slowFunc() completes")
+	fmt.Println("I am not shown until slowFunc2() completes")
 }
