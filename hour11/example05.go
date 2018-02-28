@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func responseTime(url string) {
+func responseTime5(url string) {
 
 	start := time.Now()
 
@@ -33,7 +33,7 @@ func main() {
 	urls[2] = "http://www.gouvernement.fr/"
 
 	for _, u := range urls {
-		go responseTime(u)
+		go responseTime5(u)
 	}
 
 	time.Sleep(time.Second * 5)
