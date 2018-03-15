@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type Person struct {
+type Person2 struct {
 	Name    string
 	Age     int
 	Hobbies []string
@@ -14,7 +14,7 @@ type Person struct {
 
 func main() {
 	hobbies := []string{"Cycling", "Cheese", "Techno"}
-	p := Person{
+	p := Person2{
 		Name:    "George",
 		Age:     40,
 		Hobbies: hobbies,

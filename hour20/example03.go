@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type Person struct {
+type Person3 struct {
 	Name    string   `json:"name"`
 	Age     int      `json:"age"`
 	Hobbies []string `json:"hobbies"`
@@ -14,7 +14,7 @@ type Person struct {
 
 func main() {
 	hobbies := []string{"Cycling", "Cheese", "Techno"}
-	p := Person{
+	p := Person3{
 		Name:    "George",
 		Age:     40,
 		Hobbies: hobbies,

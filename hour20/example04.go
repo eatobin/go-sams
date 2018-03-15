@@ -6,14 +6,14 @@ import (
 	"log"
 )
 
-type Person struct {
+type Person4 struct {
 	Name    string   `json:"name,omitempty"`
 	Age     int      `json:"age,omitempty"`
 	Hobbies []string `json:"hobbies,omitempty"`
 }
 
 func main() {
-	p := Person{}
+	p := Person4{}
 	jsonByteData, err := json.Marshal(p)
 	if err != nil {
 		log.Fatal(err)

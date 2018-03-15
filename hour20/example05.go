@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type Person struct {
+type Person5 struct {
 	Name    string   `json:"name"`
 	Age     int      `json:"age"`
 	Hobbies []string `json:"hobbies"`
@@ -15,7 +15,7 @@ type Person struct {
 func main() {
 	jsonStringData := `{"name":"George","age":40,"hobbies":["Cycling","Cheese","Techno"]}`
 	jsonByteData := []byte(jsonStringData)
-	p := Person{}
+	p := Person5{}
 	err := json.Unmarshal(jsonByteData, &p)
 	if err != nil {
 		log.Fatal(err)
