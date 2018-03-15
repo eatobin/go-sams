@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fileBytes, err := ioutil.ReadFile("example01.txt")
+	fileBytes, err := ioutil.ReadFile("hour21/example01/example01.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

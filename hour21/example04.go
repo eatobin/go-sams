@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	files, err := ioutil.ReadDir(".")
+	files, err := ioutil.ReadDir("hour21")
 	if err != nil {
 		log.Fatal(err)
 	}

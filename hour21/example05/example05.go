@@ -7,13 +7,13 @@ import (
 )
 
 func main() {
-	from, err := os.Open("./example05.txt")
+	from, err := os.Open("hour21/example05/example05.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer from.Close()
 
-	to, err := os.OpenFile("./example05.copy.txt", os.O_RDWR|os.O_CREATE, 0666)
+	to, err := os.OpenFile("hour21/example05/example05.copy.txt", os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}

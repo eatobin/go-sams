@@ -14,7 +14,7 @@ type Config struct {
 }
 
 func main() {
-	f, err := ioutil.ReadFile("config.json")
+	f, err := ioutil.ReadFile("hour21/example07/config.json")
 	if err != nil {
 		log.Fatal(err)
 	}
