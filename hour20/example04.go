@@ -13,7 +13,12 @@ type Person4 struct {
 }
 
 func main() {
-	p := Person4{}
+	hobbies := []string{"Cycling", "Cheese", "Techno"}
+	p := Person4{
+		Name:    "",
+		Age:     40,
+		Hobbies: hobbies,
+	}
 	jsonByteData, err := json.Marshal(p)
 	if err != nil {
 		log.Fatal(err)
