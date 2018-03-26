@@ -12,10 +12,10 @@ type Message struct {
 	message []byte
 }
 
-var connections []net.Conn
+var connections5 []net.Conn
 var messages = make(chan Message)
-var addClient = make(chan net.Conn)
-var removeClient = make(chan net.Conn)
+var addClient5 = make(chan net.Conn)
+var removeClient5 = make(chan net.Conn)
 
 func main() {
 
@@ -32,7 +32,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		addClient <- conn
+		addClient5 <- conn
 
 		go handleRequest(conn)
 
@@ -46,12 +46,12 @@ func startChannels() {
 
 		case message := <-messages:
 			broadcastMessage(&message)
-		case newClient := <-addClient:
-			connections = append(connections, newClient)
-			fmt.Println(len(connections))
-		case deadClient := <-removeClient:
+		case newClient := <-addClient5:
+			connections5 = append(connections5, newClient)
+			fmt.Println(len(connections5))
+		case deadClient := <-removeClient5:
 			removeConn(deadClient)
-			fmt.Println(len(connections))
+			fmt.Println(len(connections5))
 		}
 	}
 }
@@ -64,7 +64,7 @@ func handleRequest(conn net.Conn) {
 		_, err := conn.Read(message)
 		if err != nil {
 			if err == io.EOF {
-				removeClient <- conn
+				removeClient5 <- conn
 				conn.Close()
 				return
 			}
@@ -82,7 +82,7 @@ func handleRequest(conn net.Conn) {
 }
 
 func broadcastMessage(m *Message) {
-	for _, conn := range connections {
+	for _, conn := range connections5 {
 		if m.conn != conn {
 			_, err := conn.Write(m.message)
 			if err != nil {
@@ -94,10 +94,10 @@ func broadcastMessage(m *Message) {
 
 func removeConn(conn net.Conn) {
 	var i int
-	for i = range connections {
-		if connections[i] == conn {
+	for i = range connections5 {
+		if connections5[i] == conn {
 			break
 		}
 	}
-	connections = append(connections[:i], connections[i+1:]...)
+	connections5 = append(connections5[:i], connections5[i+1:]...)
 }

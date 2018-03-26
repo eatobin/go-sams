@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
 	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/julienschmidt/httprouter"
 )
 
 func TestListTasksHandler(t *testing.T) {

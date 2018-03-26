@@ -7,10 +7,10 @@ import (
 	"net"
 )
 
-var connections []net.Conn
-var messages = make(chan []byte)
-var addClient = make(chan net.Conn)
-var removeClient = make(chan net.Conn)
+var connections4 []net.Conn
+var messages4 = make(chan []byte)
+var addClient4 = make(chan net.Conn)
+var removeClient4 = make(chan net.Conn)
 
 func main() {
 
@@ -27,7 +27,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		addClient <- conn
+		addClient4 <- conn
 
 		go handleRequest(conn)
 
@@ -39,14 +39,14 @@ func startChannels() {
 	for {
 		select {
 
-		case message := <-messages:
+		case message := <-messages4:
 			broadcastMessage(message)
-		case newClient := <-addClient:
-			connections = append(connections, newClient)
-			fmt.Println(len(connections))
-		case deadClient := <-removeClient:
+		case newClient := <-addClient4:
+			connections4 = append(connections4, newClient)
+			fmt.Println(len(connections4))
+		case deadClient := <-removeClient4:
 			removeConn(deadClient)
-			fmt.Println(len(connections))
+			fmt.Println(len(connections4))
 		}
 	}
 }
@@ -58,19 +58,19 @@ func handleRequest(conn net.Conn) {
 		_, err := conn.Read(message)
 		if err != nil {
 			if err == io.EOF {
-				removeClient <- conn
+				removeClient4 <- conn
 				conn.Close()
 				return
 			}
 			log.Fatal(err)
 		}
 
-		messages <- message
+		messages4 <- message
 	}
 }
 
 func broadcastMessage(m []byte) {
-	for _, conn := range connections {
+	for _, conn := range connections4 {
 		_, err := conn.Write(m)
 		if err != nil {
 			log.Fatal(err)
@@ -80,10 +80,10 @@ func broadcastMessage(m []byte) {
 
 func removeConn(conn net.Conn) {
 	var i int
-	for i = range connections {
-		if connections[i] == conn {
+	for i = range connections4 {
+		if connections4[i] == conn {
 			break
 		}
 	}
-	connections = append(connections[:i], connections[i+1:]...)
+	connections4 = append(connections4[:i], connections4[i+1:]...)
 }
