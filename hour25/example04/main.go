@@ -8,23 +8,23 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func ListTasks(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func ListTasks(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "ListTasks\n")
 }
 
-func CreateTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func CreateTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "CreateTasks\n")
 }
 
-func ReadTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func ReadTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "ReadTask\n")
 }
 
-func UpdateTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func UpdateTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "UpdateTask\n")
 }
 
-func DeleteTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func DeleteTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "DeleteTask\n")
 }
 
