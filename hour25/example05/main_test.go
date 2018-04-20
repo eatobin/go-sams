@@ -17,7 +17,6 @@ func TestListTasksHandler(t *testing.T) {
 	s.ServeHTTP(w, r)
 
 	expectedContentTypeHeader := "application/json; charset=utf-8"
-
 	if w.Header().Get("Content-Type") != expectedContentTypeHeader {
 		t.Errorf("handler returned unexpected Content-Type header: got %v want %v",
 			w.Header().Get("Content-Type"), expectedContentTypeHeader)
