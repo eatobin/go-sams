@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func helloWorld(w http.ResponseWriter, r *http.Request) {
+func helloWorld3(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
@@ -14,6 +14,6 @@ func helloWorld(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", helloWorld)
+	http.HandleFunc("/", helloWorld3)
 	http.ListenAndServe(":8000", nil)
 }
