@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func helloWorld(w http.ResponseWriter, r *http.Request) {
+func helloWorld(w http.ResponseWriter, _ *http.Request) {
 	w.Write([]byte("Hello World\n"))
 }
 
