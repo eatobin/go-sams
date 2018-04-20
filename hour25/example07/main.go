@@ -18,6 +18,7 @@ type Server struct {
 func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	s.r.ServeHTTP(w, r)
+	return
 }
 
 func ListTasks(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
