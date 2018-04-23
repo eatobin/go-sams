@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/binary"
 	"encoding/json"
+
 	"github.com/boltdb/bolt"
 )
 
@@ -38,7 +39,7 @@ func (s *Store) Initialize() error {
 
 // GetTasks fetches all tasks from the store
 func (s *Store) GetTasks() ([]*Task, error) {
-	tasks := []*Task{}
+	var tasks []*Task
 	err := store.db.View(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte("tasks"))
 
@@ -78,8 +79,8 @@ func (s *Store) CreateTask(t *Task) error {
 }
 
 // Close is used to close the database
-func (b *Store) Close() error {
-	return b.db.Close()
+func (s *Store) Close() error {
+	return s.db.Close()
 }
 
 // itob returns an 8-byte big endian representation of v.
