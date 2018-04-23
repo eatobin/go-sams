@@ -21,7 +21,7 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-func ListTasks(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func ListTasks(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	tasks, err := store.GetTasks()
 	if err != nil {
 		log.Fatal(err)
@@ -48,15 +48,15 @@ func CreateTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.WriteHeader(http.StatusCreated)
 }
 
-func ReadTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func ReadTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "ReadTask\n")
 }
 
-func UpdateTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func UpdateTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "UpdateTask\n")
 }
 
-func DeleteTask(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func DeleteTask(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "DeleteTask\n")
 }
 
