@@ -4,12 +4,13 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
+
 	"github.com/boltdb/bolt"
 )
 
 var (
 	// errKeyNotFound is returned when a key is not found
-	errKeyNotFound = errors.New("Key Not Found")
+	errKeyNotFound = errors.New("key not found")
 )
 
 type Store struct {
@@ -75,7 +76,7 @@ func (s *Store) UpdateTask(t *Task) error {
 
 // GetTasks fetches all tasks from the store
 func (s *Store) GetTasks() ([]*Task, error) {
-	tasks := []*Task{}
+	var tasks []*Task
 	err := store.db.View(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte("tasks"))
 
@@ -132,8 +133,8 @@ func (s *Store) DeleteTask(id int) error {
 }
 
 // Close is used to gracefully close the DB connection.
-func (b *Store) Close() error {
-	return b.db.Close()
+func (s *Store) Close() error {
+	return s.db.Close()
 }
 
 // itob returns an 8-byte big endian representation of v.
