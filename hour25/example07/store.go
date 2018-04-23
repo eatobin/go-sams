@@ -19,7 +19,7 @@ type Store struct {
 
 // initialize is used to set up all of the buckets.
 func NewStore() (*Store, error) {
-	handle, err := bolt.Open("tasks.db", 0600, nil)
+	handle, err := bolt.Open("hour25/example07/tasks.db", 0600, nil)
 	store := &Store{
 		db: handle,
 	}
